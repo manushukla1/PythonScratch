@@ -53,3 +53,5 @@ exist'''
 alien_0 = {'color': 'green', 'speed': 'slow'}
 point_value = alien_0.get('points', 'No point value assigned.') # as No key for point is available so we check if there is available we return else we don't 
 print(point_value)
+
+print("raviji")
