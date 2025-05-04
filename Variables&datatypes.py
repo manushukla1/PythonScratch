@@ -39,9 +39,6 @@ multiply = 2*4
 divide= 16/2
 print(addition,substraction,multiply,divide)
 
-#print("comment")
-
-import this
 
 
 
