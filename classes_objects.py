@@ -111,3 +111,108 @@ print(dog1.species)  # Canine
 print(dog2.species)  # Canine
 
 
+# Inheritance
+"""
+class Parent:
+    def greet(self):
+        print("Hello from Parent!")
+
+class Child(Parent):
+    pass  # Inherits everything from Parent
+
+c = Child()
+c.greet()  # Output: Hello from Parent!
+"""
+
+# If the child has a method with the same name, it overrides the parent’s method.
+# super() lets you call the parent’s methods inside the child’s methods.
+"""
+class Parent:
+    def greet(self):
+        print("Hello from Parent!")
+
+class Child(Parent):
+    def greet(self):
+        super().greet()
+        print("Hello from Child!")
+
+c = Child()
+c.greet()
+"""
+class Animal:
+    def speak(self):
+        return "Some sound"
+
+class Dog(Animal):
+    def speak(self):
+        return "Woof!"
+
+class Cat(Animal):
+    pass
+
+my_dog = Dog()
+my_cat = Cat()
+
+print(my_dog.speak())   # ?
+print(my_cat.speak())   # ?
+
+# types of inheritance -----------------
+"""
+Single Inheritance --- One child class inherits from one parent class."""  # Used when: You want a class to reuse behavior from just one parent class.
+"""Multilevel Inheritance --- Child class inherits from a class that itself is a child of another class. """ #Used when: You want a deeper hierarchy,
+# like Animal → Mammal → Dog.
+class Animal:
+    def eat(self):
+        print("Eating")
+
+class Mammal(Animal):  # inherits from Animal
+    def walk(self):
+        print("Walking")
+
+class Dog(Mammal):  # inherits from Mammal
+    def bark(self):
+        print("Woof!")
+
+d = Dog()
+d.eat()   # from Animal
+d.walk()  # from Mammal
+d.bark()  # from Dog
+""" 
+Multiple Inheritance --- A class inherits from more than one parent class.""" # Used when: A class needs features from multiple sources.
+class Flyable:
+    def fly(self):
+        print("Flying")
+
+class Swimmable:
+    def swim(self):
+        print("Swimming")
+
+class Duck(Flyable, Swimmable):  # inherits from both
+    def quack(self):
+        print("Quack!")
+
+d = Duck()
+d.fly()    # from Flyable
+d.swim()   # from Swimmable
+d.quack()  # from Duck
+
+# super() --- The super() function gives you access to methods from the parent class without directly naming it. This is especially useful when overriding methods in the child class, like __init__().
+
+
+class Animal:
+    def __init__(self, name):
+        self.name = name
+        print(f"Animal created: {self.name}")
+
+class Dog(Animal):
+    def __init__(self, name, breed):
+        super().__init__(name)   # Calls the parent constructor
+        self.breed = breed
+        print(f"Dog created: {self.name}, Breed: {self.breed}")
+
+d = Dog("Buddy", "Golden Retriever")
+
+
+# decorators
+
+*
